@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Tetra Fumes">
+  <rect x="0" y="0" width="64" height="64" rx="12" ry="12" fill="#0B0A09"/>
+  <g fill="none" stroke="#D08A3C" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <polygon points="32,12 10,52 54,52"/>
+    <line x1="32" y1="12" x2="38" y2="34"/>
+    <line x1="54" y1="52" x2="38" y2="34"/>
+  </g>
+</svg>

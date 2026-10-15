@@ -1,0 +1,97 @@
+/* ============================================================
+   TETRA FUMES — global polish layer
+   Loaded after app.css. Adds safety nets and small overrides.
+   ============================================================ */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+/* Media safety net */
+img,
+video,
+svg {
+  max-width: 100%;
+}
+
+/* Auto height only when explicit dimensions are given.
+   Fixed-aspect-ratio containers (aspect-ratio + object-fit) keep their height. */
+img[width][height] {
+  height: auto;
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background-color: var(--amber);
+  color: var(--obsidian);
+  font-family: "Space Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  line-height: 1;
+  border-radius: 2px;
+  transform: translateY(-200%);
+  transition: transform var(--t-fast) var(--ease);
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 2px solid var(--bone);
+  outline-offset: 2px;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 600px) {
+  .section {
+    padding-block: clamp(3.5rem, 14vw, 5rem);
+  }
+
+  h1,
+  h2 {
+    letter-spacing: 0.05em;
+  }
+}
+
+/* ---------- Touch devices: no hover-only transforms ---------- */
+@media (hover: none) {
+  .btn:hover,
+  .btn-ghost:hover {
+    transform: none;
+  }
+  .btn:hover {
+    background-color: var(--amber);
+    border-color: var(--amber);
+  }
+  .btn-ghost:hover {
+    border-color: var(--bone);
+    color: var(--bone);
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
